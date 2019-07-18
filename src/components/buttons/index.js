@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/button-has-type */
 import React from 'react';
@@ -5,11 +6,31 @@ import { Link } from 'react-router-dom';
 
 import './styles.css';
 
-const Button = ({ title, type }) => (title === 'informar' ? (
-  <button className="btn-differ">{title}</button>
+export const ButtonSmall = ({ title, method }) => (title === 'Sim' ? (
+  <Link to={`/sentence/${true}`} className="btn-small" onClick={method}>
+    {title}
+  </Link>
 ) : (
-  <button className={type === 'show' ? 'btn-differ' : 'btn-differ-edit'}>{title}</button>
+  <Link to={`/sentence/${false}`} className="btn-small" onClick={method}>
+    {title}
+  </Link>
 ));
+
+const Button = ({ title, type, method, id }) => (title === 'informar' ? (
+  <button className="btn-differ" onClick={method}>
+    {title}
+  </button>
+) : (
+  <Link
+    to={type === 'show' ? `/sentence/${id}/view` : '/sentence'}
+    className={type === 'show' ? 'btn-differ' : 'btn-differ-edit'}
+    onClick={method}
+  >
+    {title}
+  </Link>
+));
+
+export const ButtonLarge = ({ title }) => <button className="btn-large">{title}</button>;
 
 export const ButtonTop = ({ page }) => (
   <div className="bg-btn">

@@ -1,3 +1,27 @@
+.btn-small {
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 70px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    color: #4a00cb;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-right: 35px;
+    cursor: pointer;
+    border: 1px solid #4a00cb;
+    text-decoration: none;
+}
+.btn-small:hover {
+    background-color: #4a00cb;
+    color: #fff;
+    border: 1px solid #4a00cb;
+}
+
 .btn-differ {
     margin-top: 30px;
     background-color: #4a00cb;
@@ -15,7 +39,29 @@
     cursor: pointer;
     border: 1px solid #4a00cb;
 }
+
 .btn-differ:hover {
+    background-color: #fff;
+    color: #4a00cb;
+    border: 1px solid #4a00cb;
+}
+.btn-large {
+    margin-top: 30px;
+    background-color: #4a00cb;
+    padding: 290px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #4a00cb;
+}
+.btn-large:hover {
     background-color: #fff;
     color: #4a00cb;
     border: 1px solid #4a00cb;
@@ -72,7 +118,8 @@
     margin-bottom: 20px;
     font-size: 1.1em;
     font-weight: bold;
-    margin-left: 35px;
+    margin-left: 17.5px;
+    margin-right: 17.5px;
     cursor: pointer;
     border: 1px solid #11ffd0;
 }

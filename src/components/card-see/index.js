@@ -1,23 +1,30 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react/no-unused-state */
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
 import _ from 'lodash';
-import Button, { ButtonLarge } from '../buttons';
+import { ButtonLarge } from '../buttons';
 import HeaderCard from '../header-card';
 import './styles.css';
+import { getDetails } from '../../services/api';
 
-class CardSentence extends Component {
+class CardSee extends Component {
   constructor(props) {
     super(props);
+    const { match } = this.props;
     this.state = {
-      value: _.get(this.props, 'data'),
-      showInput: _.get(this.props, 'show').insert,
+      value: [],
+      id: _.get(match.params, 'id'),
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSumit = this.handleSumit.bind(this);
-    const { showInput } = this.state;
-    console.log(showInput);
+  }
+
+  async componentDidMount() {
+    const { id } = this.state;
+    const data = await getDetails(id);
+    this.setState({ value: _.get(data, 'data', []) });
   }
 
   handleChange(event) {
@@ -30,6 +37,7 @@ class CardSentence extends Component {
 
   render() {
     const { value, showInput } = this.state;
+    console.log(value);
     const { user, userCPF, exAdverso } = value;
     return (
       <div className="main-card">
@@ -77,15 +85,13 @@ class CardSentence extends Component {
                 </select>
               ) : null}
             </div>
-            <Button title="Anexar documento" />
-            <Button title="Sem documento" />
           </form>
           <div />
         </div>
-        <ButtonLarge title="concluir" />
+        <ButtonLarge title="Editar" />
       </div>
     );
   }
 }
 
-export default CardSentence;
+export default CardSee;

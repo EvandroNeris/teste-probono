@@ -6,18 +6,18 @@ import Navbar from '../components/navbar';
 import './style.css';
 import CardSentence from '../components/card-sentence';
 
-class Sentence extends Component {
+class View extends Component {
   render() {
     const { match } = this.props;
     return (
       <>
         <Navbar />
         <div className="body">
-          <CardSentence show={match.params} data={{}} />
+          <CardSentence data={match.params} />
         </div>
       </>
     );
   }
 }
 
-export default Sentence;
+export default View;

@@ -19,8 +19,9 @@ class History extends Component {
 
   async componentDidMount() {
     const data = await getCases();
-    console.log(data);
-    this.setState({ cases: _.get(data, 'data', []) });
+    this.setState({
+      cases: _.get(data, 'data', []),
+    });
   }
 
   render() {

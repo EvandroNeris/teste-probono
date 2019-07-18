@@ -5,8 +5,10 @@ import './styles.css';
 
 const Navbar = () => (
   <div className="main">
-    <div>
-      <h2 className="logo">probono</h2>
+    <div className="logo-main">
+      <Link to="/">
+        <h2 className="logo">probono</h2>
+      </Link>
     </div>
     <ul className="menu-main">
       <li className="menu-item">
