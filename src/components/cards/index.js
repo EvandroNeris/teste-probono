@@ -2,21 +2,20 @@
 /* eslint-disable react/no-unused-state */
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
-import {
-  Container, Modal, ModalHeader, ModalBody,
-} from 'reactstrap';
+import { Container } from 'reactstrap';
 import _ from 'lodash';
 import './styles.css';
-import Button, { ButtonSmall } from '../buttons';
+import Button from '../buttons';
 import HeaderCard from '../header-card';
 import { getDetails } from '../../services/api';
+import Modals from '../modal';
 
 class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
       value: _.get(this.props, 'data'),
-      modalIsOpen: false,
+      modalShow: false,
       details: [],
     };
     this.handleChange = this.handleChange.bind(this);
@@ -36,28 +35,14 @@ class Card extends Component {
     event.preventDefault();
   }
 
-  toggleModal() {
-    const { modalIsOpen } = this.state;
-    this.setState({
-      modalIsOpen: !modalIsOpen,
-    });
-  }
-
   render() {
-    const { value, modalIsOpen } = this.state;
+    const { value, modalShow } = this.state;
     const {
       id, user, userCPF, exAdverso,
     } = value;
     return (
       <Container className="main-card">
-        <Modal isOpen={modalIsOpen} className="modal">
-          <ModalHeader className="modal-header">Sentença</ModalHeader>
-          <ModalBody>
-            Tem dispositivo a ser inserido?
-            <ButtonSmall title="Sim" />
-            <ButtonSmall title="Não" />
-          </ModalBody>
-        </Modal>
+        <Modals show={modalShow} onHide={() => this.setState({ modalShow: false })} />
         <HeaderCard id={id || 0} />
         <div className="body-card">
           <form>
@@ -91,11 +76,11 @@ class Card extends Component {
           <div />
         </div>
         {_.isEmpty(id) ? (
-          <Button title="informar" method={() => this.toggleModal()} />
+          <Button title="informar" method={() => this.setState({ modalShow: true })} />
         ) : (
           <>
             <Button type="show" title="visualizar" id={id} />
-            <Button type="edit" title="editar" method={() => this.toggleModal()} />
+            <Button type="edit" title="editar" method={() => this.setState({ modalShow: true })} />
           </>
         )}
       </Container>

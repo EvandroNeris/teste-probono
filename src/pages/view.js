@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Navbar from '../components/navbar';
 
 import './style.css';
-import CardSentence from '../components/card-sentence';
+import CardSee from '../components/card-see';
 
 class View extends Component {
   render() {
@@ -13,7 +13,7 @@ class View extends Component {
       <>
         <Navbar />
         <div className="body">
-          <CardSentence data={match.params} />
+          <CardSee data={match.params} />
         </div>
       </>
     );

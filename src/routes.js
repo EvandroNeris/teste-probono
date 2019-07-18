@@ -13,7 +13,8 @@ const Routes = () => (
       <Route exact path="/" component={Home} />
       <Route path="/history" component={History} />
       <Route path="/sentence/:insert" component={Sentence} />
-      <Route path="/sentence/:id/view" component={View} />
+      <Route path="/sentence" component={Sentence} />
+      <Route path="/view/:id" component={View} />
     </Switch>
   </BrowserRouter>
 );

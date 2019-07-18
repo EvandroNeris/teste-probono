@@ -17,12 +17,12 @@ export const ButtonSmall = ({ title, method }) => (title === 'Sim' ? (
 ));
 
 const Button = ({ title, type, method, id }) => (title === 'informar' ? (
-  <button className="btn-differ" onClick={method}>
+  <Link to="/" className="btn-differ" onClick={method}>
     {title}
-  </button>
+  </Link>
 ) : (
   <Link
-    to={type === 'show' ? `/sentence/${id}/view` : '/sentence'}
+    to={type === 'show' ? `/view/${id}` : '/sentence'}
     className={type === 'show' ? 'btn-differ' : 'btn-differ-edit'}
     onClick={method}
   >

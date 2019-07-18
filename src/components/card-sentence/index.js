@@ -16,8 +16,6 @@ class CardSentence extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSumit = this.handleSumit.bind(this);
-    const { showInput } = this.state;
-    console.log(showInput);
   }
 
   handleChange(event) {
@@ -65,11 +63,11 @@ class CardSentence extends Component {
               </div>
             </div>
             <div className="block2">
-              {showInput === 'true' ? <h4>Dispositivo:</h4> : null}
+              {showInput === 'true' ? <h4 className="label">Dispositivo:</h4> : null}
               {showInput === 'true' ? <textarea name="text" rows="5" /> : null}
-              <h4>O que aconteceu?</h4>
+              <h4 className="label">O que aconteceu?</h4>
               <textarea name="text" rows="5" />
-              <h4>O que vai acontecer?</h4>
+              <h4 className="label">O que vai acontecer?</h4>
               <textarea name="text" rows="5" />
               {showInput === 'true' ? (
                 <select>

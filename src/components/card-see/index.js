@@ -12,10 +12,9 @@ import { getDetails } from '../../services/api';
 class CardSee extends Component {
   constructor(props) {
     super(props);
-    const { match } = this.props;
     this.state = {
       value: [],
-      id: _.get(match.params, 'id'),
+      id: _.get(this.props, 'data'),
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSumit = this.handleSumit.bind(this);
@@ -25,6 +24,7 @@ class CardSee extends Component {
     const { id } = this.state;
     const data = await getDetails(id);
     this.setState({ value: _.get(data, 'data', []) });
+    console.log(data);
   }
 
   handleChange(event) {
@@ -73,11 +73,11 @@ class CardSee extends Component {
               </div>
             </div>
             <div className="block2">
-              {showInput === 'true' ? <h4>Dispositivo:</h4> : null}
+              {showInput === 'true' ? <h4 className="label">Dispositivo:</h4> : null}
               {showInput === 'true' ? <textarea name="text" rows="5" /> : null}
-              <h4>O que aconteceu?</h4>
+              <h4 className="label">O que aconteceu?</h4>
               <textarea name="text" rows="5" />
-              <h4>O que vai acontecer?</h4>
+              <h4 className="label">O que vai acontecer?</h4>
               <textarea name="text" rows="5" />
               {showInput === 'true' ? (
                 <select>

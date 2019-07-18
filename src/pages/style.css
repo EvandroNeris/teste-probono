@@ -1,8 +1,50 @@
 * {
     font-family: "Roboto", sans-serif;
+    padding: 0;
+    margin: 0;
 }
 .body {
     width: 100%;
     align-items: center;
     text-align: center;
+}
+.label {
+    text-align: left;
+    margin-left: 18px;
+    margin-top: 20px;
+    color: #656565;
+}
+#sentence {
+    display: block;
+}
+.main-card {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 30px;
+    border: 1px solid #d0d0d0;
+}
+.body-card {
+    display: inline;
+}
+textarea {
+    width: 94% !important;
+    margin-top: 5px !important;
+}
+select {
+    margin-top: 5px !important;
+    width: 94.5% !important;
+    padding: 10px;
+}
+input {
+    border: none;
+    border-bottom: 1px solid #4a00cb;
+    border-left: 1px solid #4a00cb;
+    padding: 8px;
+    width: 85%;
+    margin-top: 25px;
+}
+form {
+    display: flex;
+    width: 100%;
+    margin-top: 7px;
 }
