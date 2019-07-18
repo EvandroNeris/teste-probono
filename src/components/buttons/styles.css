@@ -1,0 +1,84 @@
+.btn-differ {
+    margin-top: 30px;
+    background-color: #4a00cb;
+    padding: 80px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-right: 35px;
+    cursor: pointer;
+    border: 1px solid #4a00cb;
+}
+.btn-differ:hover {
+    background-color: #fff;
+    color: #4a00cb;
+    border: 1px solid #4a00cb;
+}
+.bg-btn {
+    background-color: #f1f1f1;
+    border-radius: 30px;
+    width: 21.8%;
+    height: 29.1px;
+    margin-top: 30px;
+    margin-left: 40%;
+    border: 1px solid #d0d0d0;
+    padding-top: 10px;
+}
+.btn {
+    background-color: #4a00cb;
+    padding: 50px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: white;
+    border-radius: 30px;
+    border: none;
+    text-align: center;
+    margin: 0;
+    margin-top: 3px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.btn-press {
+    background-color: #f1f1f1;
+    padding: 50px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: rgb(134, 134, 134);
+    border-radius: 30px;
+    border: none;
+    text-align: center;
+    margin: 0;
+    margin-top: 3px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.btn-differ-edit {
+    margin-top: 30px;
+    background-color: #11ffd0;
+    padding: 80px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    color: #4a00cb;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-left: 35px;
+    cursor: pointer;
+    border: 1px solid #11ffd0;
+}
+
+.btn-differ-edit:hover {
+    background-color: #4a00cb;
+    color: #11ffd0;
+    border: 1px solid #4a00cb;
+}
