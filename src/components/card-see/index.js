@@ -7,14 +7,14 @@ import _ from 'lodash';
 import { ButtonLarge } from '../buttons';
 import HeaderCard from '../header-card';
 import './styles.css';
-import { getDetails } from '../../services/api';
+import { getDetails, getCase } from '../../services/api';
 
 class CardSee extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       value: {},
+      users: {},
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSumit = this.handleSumit.bind(this);
@@ -22,7 +22,12 @@ class CardSee extends Component {
 
   async componentDidMount() {
     const data = await getDetails(_.get(this.props, 'data'));
-    this.setState({ value: _.get(data, 'data', []) });
+    const user = await getCase(_.get(data.data, 'id'));
+
+    this.setState({
+      value: _.get(data, 'data', []),
+      users: _.get(user, 'data', []),
+    });
   }
 
   handleChange(event) {
@@ -34,11 +39,9 @@ class CardSee extends Component {
   }
 
   render() {
-    const { value, showInput } = this.state;
-    console.log(value);
-    const {
-      lawsuit, processNumber, user, userCPF, exAdverso,
-    } = value;
+    const { value, showInput, users } = this.state;
+    const { user, userCPF, exAdverso } = users;
+    const { lawsuit, processNumber } = value;
     return (
       <div className="main-card">
         <HeaderCard id={lawsuit || 0} />
@@ -53,7 +56,12 @@ class CardSee extends Component {
                   name="user"
                   placeholder="Nome"
                 />
-                <input type="text" value={processNumber} onChange={this.handleChange} placeholder="Numero do processo" />
+                <input
+                  type="text"
+                  value={processNumber}
+                  onChange={this.handleChange}
+                  placeholder="Numero do processo"
+                />
               </div>
               <div className="column2">
                 <input

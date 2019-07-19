@@ -6,6 +6,8 @@ const api = create({
 
 export const getCases = () => api.get('/lawsuits');
 
+export const getCase = id => api.get(`/lawsuits/${id}`);
+
 export const getDetails = id => api.get(`/lawsuitDetails/${id}`);
 
 export const getSteps = id => api.get(`/lawsuitSteps/${id}`);

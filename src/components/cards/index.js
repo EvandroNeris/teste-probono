@@ -37,7 +37,6 @@ class Card extends Component {
 
   render() {
     const { value, modalShow } = this.state;
-    console.log(value);
     const {
       id, user, userCPF, exAdverso,
     } = value;
