@@ -23,7 +23,7 @@ class Card extends Component {
   }
 
   async componentDidMount() {
-    const details = await getDetails();
+    const details = await getDetails(1);
     this.setState({ details: _.get(details, 'data', []) });
   }
 
@@ -37,6 +37,7 @@ class Card extends Component {
 
   render() {
     const { value, modalShow } = this.state;
+    console.log(value);
     const {
       id, user, userCPF, exAdverso,
     } = value;

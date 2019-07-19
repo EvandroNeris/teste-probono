@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import Navbar from '../components/navbar';
-import { getCases } from '../services/api';
+import { getCases, getDocuments } from '../services/api';
 import Card from '../components/cards';
 import { ButtonTop } from '../components/buttons';
 
@@ -19,6 +19,8 @@ class History extends Component {
 
   async componentDidMount() {
     const data = await getCases();
+    const teste = await getDocuments(10);
+    console.log(teste);
     this.setState({
       cases: _.get(data, 'data', []),
     });

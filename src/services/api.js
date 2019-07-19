@@ -6,10 +6,10 @@ const api = create({
 
 export const getCases = () => api.get('/lawsuits');
 
-export const getDetails = id => api.get('/lawsuitDetails', id);
+export const getDetails = id => api.get(`/lawsuitDetails/${id}`);
 
-export const getSteps = () => api.get('/lawsuitSteps');
+export const getSteps = id => api.get(`/lawsuitSteps/${id}`);
 
-export const getDocuments = id => api.get('/lawsuitDocuments', id);
+export const getDocuments = id => api.get(`/lawsuitDocuments/${id}`);
 
 export default api;

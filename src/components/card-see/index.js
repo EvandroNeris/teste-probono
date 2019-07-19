@@ -12,19 +12,17 @@ import { getDetails } from '../../services/api';
 class CardSee extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = {
-      value: [],
-      id: _.get(this.props, 'data'),
+      value: {},
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSumit = this.handleSumit.bind(this);
   }
 
   async componentDidMount() {
-    const { id } = this.state;
-    const data = await getDetails(id);
+    const data = await getDetails(_.get(this.props, 'data'));
     this.setState({ value: _.get(data, 'data', []) });
-    console.log(data);
   }
 
   handleChange(event) {
@@ -38,10 +36,12 @@ class CardSee extends Component {
   render() {
     const { value, showInput } = this.state;
     console.log(value);
-    const { user, userCPF, exAdverso } = value;
+    const {
+      lawsuit, processNumber, user, userCPF, exAdverso,
+    } = value;
     return (
       <div className="main-card">
-        <HeaderCard id={0} />
+        <HeaderCard id={lawsuit || 0} />
         <div className="body-card">
           <form id="sentence">
             <div className="block">
@@ -53,7 +53,7 @@ class CardSee extends Component {
                   name="user"
                   placeholder="Nome"
                 />
-                <input type="text" onChange={this.handleChange} placeholder="Numero do processo" />
+                <input type="text" value={processNumber} onChange={this.handleChange} placeholder="Numero do processo" />
               </div>
               <div className="column2">
                 <input
